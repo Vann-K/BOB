@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Name: A Coding Challenge</title>
+    <title>BOB: A Coding Challenge</title>
 
     <!-- DEVICONS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
@@ -27,7 +27,7 @@
             <div class="container-xxl">
                 <a class="navbar-brand" href="/index.html">
                     <img src="/img/Kraken-Footer-Logo.svg" height="50" />
-                    <span class="ms-3">App Name</span>
+                    <span class="ms-3">BOB</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -62,9 +62,36 @@
         </nav>
     </header>
     <main class="container">
-        <h1> APP UI GOES HERE </h1>
-        <input id="message" type="text" placeholder="Enter a message">
-        <button class="btn btn-primary" type="button" id="btnSubmit">Display a Message.</button>
+
+        <div class="row row-cols-1 row-cols-sm-2 ">
+            <div class="col border-end border-bottom border-2 border-dark-subtle">
+                <h1 class="text-decoration-underline">BOB - Your pal in palindromes.</h1>
+                <h4 class="lead ">Bob is a small scale javascript challenge set
+                    up to see if your word or sentence is a
+                    palindrome.
+                </h4>
+                <h2 class="text-decoration-underline">Instructions</h2>
+                <p>Simply type your sentence in the box, click the 'Go
+                    Bob og!' button and let Bob handle the rest.</p>
+
+            </div>
+            <div class=" col">
+                <div class="row g-2">
+                    <div class="col-12">
+                        <input type="text" id="pString" class="form-control" placeholder="Potential Palindrome"
+                            aria-label="Enter a string." value="" />
+                    </div>
+                    <div class="col-12 d-flex justify-content-end">
+                        <button class="btn btn-dark mb-5" id="btnSubmit">!Go BoB oG!</button>
+                    </div>
+                </div>
+                <div class="alert alert-dark" role="alert" id="alert">
+                    <strong>BoB's Ruling:</strong>
+                    <span id="results"></span>
+                </div>
+            </div>
+        </div>
+
     </main>
     <footer class="container-fluid py-2">
         <div class="row align-items-center footer-main">
@@ -100,7 +127,7 @@
 
     <!-- Event Listener -->
     <script>
-        document.getElementById('btnSubmit').addEventListener('click', displayMessage);
+        document.getElementById('btnSubmit').addEventListener('click', getValues);
     </script>
 
 </body>
