@@ -51,10 +51,10 @@
                             <a class="nav-link active" href="/code.html">The Code</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/Vann-K/BOB.git">The Repo</a>
+                            <a class="nav-link" href="https://github.com/Vann-K/BOB.git" target="_blank">The Repo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://vkport.netlify.app">About</a>
+                            <a class="nav-link" href="https://vkport.netlify.app" target="_blank">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Blog</a>
@@ -149,19 +149,25 @@
                     Let's break that down.<br />
                     <code>document</code> refers to our HTML page.<br />
                     <code>getElementById('pString')</code> grabs the html element with the id of
-                    <code>'pString'</code>.<br />
+                    <code><span>'pString'</span></code>.<br />
+                </p>
+                <p>
                     <code>.value</code> pulls the value of the grabbed html element. This is either assigned by the html
                     or given to us by the user.
                 </p>
                 <p>
-                    We then set variable <code>palResults</code> to the returned value of our logic function, <code
-                        class="language-js">checkForPalindrome()</code> when it is given the
-                    <code>inputString</code> variable.
+                    We then set variable <code>palResults</code> to the returned value of our logic function, <a
+                        href="#cFPCode" class="text-decoration-none">
+                        <code class="language-js">checkForPalindrome()</code>
+                    </a> when it is given the
+                    <code>inputString</code> argument.
                 </p>
                 <p>
-                    We then call our display function, <code class="language-js">displayResults()</code>, to return the
+                    We then call our display function, <a href="#displayResultsCode" class="text-decoration-none"><code
+                            class="language-js">displayResults()</code></a>, to return
+                    the
                     information to the user. This is passed the <code>palResults</code> and <code>inputString</code>
-                    parameters.
+                    arguments.
                 </p>
 
                 <a href="#cFPCode" class="text-decoration-none">
@@ -174,12 +180,19 @@
                     is a palindrome. For this we use RegEx or (Reg)ular (Ex)pressions. RegEx is a way to use search
                     patterns to find and replace text in strings, or to validate inputs. <br />
 
+                </p>
+                <p>
                     <code>stringRegEx</code><br />
-                    This variable stores our RegEx parameters. This pattern finds all the letters from a to z while
-                    ignoring case and checking every word. So in the end we get a return of the entire string, minus any
+                    This variable stores our RegEx parameters, <code>/[a-z]/ig</code>. This pattern finds all the
+                    letters
+                    from a to z while
+                    ignoring case <small>(i)</small> and checking globally <small>(g)</small> which just means it checks
+                    every word. So in the end we get a return of the entire string, minus any
                     punctuation, spaces or numbers. We do this with the next line using the <code>.match</code> method
                     to match the pattern of our RegEx.
+                </p>
 
+                <p>
                     <code>revInputString</code><br />
                     This variable is being created as an empty array that we can use within our for loop to store our
                     empty string. All strings are just arrays of letters behind the scenes.
@@ -196,7 +209,8 @@
 
                 <p>
                     Only a single process happens in this for loop. We take our <code>inputString</code> and use the
-                    fact that a string has array properties. We start at the end of the <code>inputString</code>'s index
+                    fact that a string has array properties to our advantage. We start at the end of the
+                    <code>inputString</code>'s index
                     and use <code>.push()</code> to add that that to the <code>revInputString</code> array. We have
                     simply turned it backwards. That is all the for loop does. When <code>i</code> goes below 0, the
                     loop concludes.
