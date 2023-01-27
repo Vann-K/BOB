@@ -72,26 +72,166 @@
             <div class="col col-12 col-md-8">
                 <pre class="line-numbers">
                     <code class="language-js">
-                        function displayMessage() {
-                            let msg = document.getElementById('message').value;
-                        
-                            Swal.fire(
-                                {
-                                    backdrop: false,
-                                    title: 'BOB',
-                                    text: msg
-                                }
-                            );
-                        }
+                        // Entry Point
+<a href="#getValuesSection"  id="getValuesCode" class="text-decoration-none">function getValues() {</a>
+    // Get values from the page
+    let inputString = document.getElementById('pString').value;
+
+    // Call logic function to test if palindrome
+    let palResults = checkForPalindrome(inputString);
+    // Call display function to report to user.
+    displayResults(palResults, inputString);
+}
+
+
+// Logic Function
+// Determine if string was a palindrome or not.
+<a href="#cFPSection" id="cFPCode" class="text-decoration-none">function checkForPalindrome(inputString) {</a>
+    // Take string, remove punctuation
+    let stringRegEx = /[a-z]/ig;
+
+    inputString = inputString.match(stringRegEx);
+    let revInputString = [];
+
+    // Reverse string, store it
+    for (i = inputString.length - 1; i >= 0; i--) {
+        revInputString.push(inputString[i]);
+    }
+    // Compare
+
+    if (revInputString.toString().toLowerCase() === inputString.toString().toLowerCase()) {
+        return true;
+    } else {
+        return false;
+    }
+
+    // Return true or false. 
+
+
+}
+
+// Display function
+// Insert into the page html
+<a href="#displayResultsSection" id="displayResultsCode" class="text-decoration-none">function displayResults(palResults, inputString) {</a>
+
+    if (palResults == true) {
+        let stringRegEx = /[a-z]/ig;
+        inputString = inputString.match(stringRegEx);
+        inputString = inputString.toString().replaceAll(',', "").toLowerCase();
+        document.getElementById('results').textContent = `"${inputString} is a palindrome!"`;
+
+    } else {
+        document.getElementById('results').textContent = "It is NOT a palindrome!";
+    }
+
+}
                     </code>
                 </pre>
 
             </div>
             <!-- Code Description -->
             <div class="col col-12 col-md-4">
-                <p>The code is structured in one function.</p>
-                <h4><code>displayMessage()</code></h4>
-                <p>This functions displays a message in a Sweet Alert.</p>
+                <p>The code is structured in three functions. Called functions will be detailed in their own sections.
+                    Click a <code class="language-js">headline()</code> to scroll to that section of the code. And click
+                    the function name within the code to scroll to that write up section.</p>
+                <p>All code could use refactoring and since the
+                    time of this writing I have found new and even more interesting ways to handle a lot of this data.
+                </p>
+                <a href="#getValuesCode" class="text-decoration-none">
+                    <h4 id="getValuesSection"><code class="language-js">getValues()</code></h4>
+                </a>
+                <p>
+                    This is our entry point function. That is, this is the fuction that starts the logic of the app.
+                    First we create the variable <code>inputString</code> and assign to it
+                    <code>document.getElementById('pString').value</code>.
+                </p>
+                <p>
+                    Let's break that down.<br />
+                    <code>document</code> refers to our HTML page.<br />
+                    <code>getElementById('pString')</code> grabs the html element with the id of
+                    <code>'pString'</code>.<br />
+                    <code>.value</code> pulls the value of the grabbed html element. This is either assigned by the html
+                    or given to us by the user.
+                </p>
+                <p>
+                    We then set variable <code>palResults</code> to the returned value of our logic function, <code
+                        class="language-js">checkForPalindrome()</code> when it is given the
+                    <code>inputString</code> variable.
+                </p>
+                <p>
+                    We then call our display function, <code class="language-js">displayResults()</code>, to return the
+                    information to the user. This is passed the <code>palResults</code> and <code>inputString</code>
+                    parameters.
+                </p>
+
+                <a href="#cFPCode" class="text-decoration-none">
+                    <h4 id="cFPSection"><code class="language-js">checkForPalindrome()</code></h4>
+                </a>
+                <p>
+                    This is our logic function.We give it the parameter of <code>inputString</code> which will be the
+                    string that the user created on the page. Then, this function is what will do all the checks
+                    necessary to see if our input string
+                    is a palindrome. For this we use RegEx or (Reg)ular (Ex)pressions. RegEx is a way to use search
+                    patterns to find and replace text in strings, or to validate inputs. <br />
+
+                    <code>stringRegEx</code><br />
+                    This variable stores our RegEx parameters. This pattern finds all the letters from a to z while
+                    ignoring case and checking every word. So in the end we get a return of the entire string, minus any
+                    punctuation, spaces or numbers. We do this with the next line using the <code>.match</code> method
+                    to match the pattern of our RegEx.
+
+                    <code>revInputString</code><br />
+                    This variable is being created as an empty array that we can use within our for loop to store our
+                    empty string. All strings are just arrays of letters behind the scenes.
+                </p>
+                <p>
+                    The last major part of this function is our for loop. We use for loops quite often to to iterate
+                    through processes. This starts the same as many for loops where we give it three expressions. First
+                    we create <code>i</code> and set it to a beginning value. This time we've set it to
+                    <code>inputString.length - 1</code>. Since all strings are arrays, we can calculate the length of
+                    our input string, subtract 1, and that gives us the last index of our string. We then say that while
+                    <code>i >= 0</code> execute the code. Then, during each loop we decrement i by 1 using our decrement
+                    operator <code>--</code>.
+                </p>
+
+                <p>
+                    Only a single process happens in this for loop. We take our <code>inputString</code> and use the
+                    fact that a string has array properties. We start at the end of the <code>inputString</code>'s index
+                    and use <code>.push()</code> to add that that to the <code>revInputString</code> array. We have
+                    simply turned it backwards. That is all the for loop does. When <code>i</code> goes below 0, the
+                    loop concludes.
+                </p>
+                <p>
+                    After our for loop we use an if statement to determine if our <code>revInputString</code> is equal
+                    to our <code>inputString</code>. We use <code>.toString()</code> to return a string representation
+                    of an array, then we use <code>.toLowercase()</code> to get rid of any of the uppercase letters as
+                    they would cause inequality between the two strings despite being the same letters. If it is equal,
+                    we return true, else we return false.
+                </p>
+
+                <a href="#displayResultsCode" class="text-decoration-none">
+                    <h4 id="displayResultsSection"><code class="language-js">displayResults()</code></h4>
+                </a>
+                <p>
+                    The final function in our small scale javascript palindrome detector is
+                    <code>displayResults()</code>. It has the parameters of <code>palResults</code> which is the result
+                    of our logic function <code>checkForPalindrome()</code> and <code>inputString</code> which is our
+                    user input.
+                </p>
+                <p>The if statement asks if <code>palResults</code> is equal to true. If so, we use our
+                    RegEx system again to remove everything from the original string that isn't a letter. Then we turn
+                    our inputString from the array back to a string with the method <code>toString()</code> again,
+                    remove all the commas from the array with the method<code>.replaceAll()</code> and finally use
+                    <code>.toLowerCase()</code> to set it all to lowercase again. We then use our trusty
+                    <code>document.getElementById()</code> to grab the element by the id of 'results'. We use
+                    <code>.textContent</code> to fill that results element with a <strong>string template
+                        literal</strong> with <code>${}</code> to insert a variable or expression. This will let our
+                    users see their string returned to them lowercase, and reversed.
+                </p>
+                <p>The else statement is the same as the last part of the if statement except it simply informs the user
+                    that their string was not a palindrome.</p>
+
+
             </div>
         </div>
 
