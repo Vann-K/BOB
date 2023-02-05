@@ -48,7 +48,7 @@ function displayResults(palResults, inputString) {
         let stringRegEx = /[a-z]/ig;
         inputString = inputString.match(stringRegEx);
         inputString = inputString.toString().replaceAll(',', "").toLowerCase();
-        document.getElementById('results').textContent = `"${inputString} is a palindrome!"`;
+        document.getElementById('results').textContent = `"Wahoo! ${inputString} is a palindrome!"`;
 
     } else {
         document.getElementById('results').textContent = "It is NOT a palindrome!";
