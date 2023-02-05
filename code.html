@@ -54,7 +54,7 @@
                             <a class="nav-link active" href="/code.html">The Code</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/Vann-K/BOB.git" target="_blank">The Repo</a>
+                            <a class="nav-link" href="https://github.com/Vann-K/ONO.git" target="_blank">The Repo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://vkport.netlify.app" target="_blank">About</a>
@@ -137,30 +137,30 @@
                 <p>The code is structured in three functions. Called functions will be detailed in their own sections.
                     Click a <code class="language-js">headline()</code> to scroll to that section of the code. And click
                     the function name within the code to scroll to that write up section.</p>
-                <p>All code could use refactoring and since the
-                    time of this writing I have found new and even more interesting ways to handle a lot of this data.
-                </p>
+
                 <a href="#getValuesCode" class="text-decoration-none">
                     <h4 id="getValuesSection"><code class="language-js">getValues()</code></h4>
                 </a>
                 <p>
-                    This is our entry point function. That is, this is the fuction that starts the logic of the app.
-                    First we create the variable <code class="language-js">inputString</code> and assign to it
+                    This is the start of our app. We call each of these blocks of code, a function. Since this is our
+                    entry point, we call this our entry point function.
+                    First we create <code class="language-js">inputString</code> and set it to
                     <code class="language-js">document.getElementById('pString').value</code>.
                 </p>
                 <p>
                     Let's break that down.<br />
                     <code>document</code> refers to our HTML page.<br />
-                    <code>getElementById('pString')</code> grabs the html element with the id of
+                    <code>getElementById('pString')</code> grabs the html element with the unique name(id) of
                     <code><span>'pString'</span></code>.<br />
                 </p>
                 <p>
-                    <code>.value</code> pulls the value of the grabbed html element. This is either assigned by the html
+                    <code>.value</code> pulls the input information of that html element. This is either assigned by the
+                    html
                     or given to us by the user.
                 </p>
                 <p>
-                    We then set variable <code>palResults</code> to the returned value of our logic function, <a
-                        href="#cFPCode" class="text-decoration-none">
+                    We then create <code>palResults</code> set to the result of our solving , <a href="#cFPCode"
+                        class="text-decoration-none">
                         <code class="language-js">checkForPalindrome()</code>
                     </a> when it is given the
                     <code>inputString</code> argument.
