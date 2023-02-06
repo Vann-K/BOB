@@ -12,15 +12,10 @@
 
     --vk-background-color: #e7f2f7;
 
-    --vk-title-font: 'Bebas Neue', sans-serif;
-    --vk-subtitle-font: 'Fira Sans', sans-serif;
-    --vk-heading-font: 'Bebas Neue', sans-serif;
-    --vk-body-font: 'Roboto', sans-serif;
-
     --vk-font-size: 1.2rem;
     --vk-font-weight: 400;
     --vk-line-height: 1.5rem;
-    --vk-title-color: #f9d877;
+    --vk-code-color: #ddc271;
 }
 
 /*START Sticky Footer */
@@ -41,6 +36,10 @@ body {
     background-color: var(--vk-dark-color);
     font-family: 'Encode Sans Condensed', sans-serif;
     font-weight: 375;
+}
+
+code {
+    color: var(--vk-code-color);
 }
 
 main {
